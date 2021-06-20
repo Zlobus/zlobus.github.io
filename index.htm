@@ -64,7 +64,7 @@
               </span>
             </button>
             <ul>
-                <li><a href="#master">Жанала</a></li>
+                <li><a href="#master">Жанали</a></li>
                 <li><a href="#questions">Вопросы</a></li>
                 <li><a href="#warning">Внимание!</a></li>
                 <li><a href="#services">Услуги</a></li>
@@ -80,7 +80,7 @@
 
         <p class="intro__text">
             Получите бесплатную<br>
-            консультацию Жанала<br>
+            консультацию Жанали<br>
             прямо сейчас!<br>
 
             <span class="intro__text--mobile">тел:+7(707)5858678<br>
@@ -761,76 +761,33 @@ $(".btn__services").click(function () {
 
 
 function showSuccessModal () {
-    if (($('#name__modal').val().length > 4)  && ($('#phone__modal').val().length > 9)) {
-        $.ajax({
-            type: "POST",
-            url: "controller/callme.php",
-            data: "name=" + $('#name__modal').val() + "&phone=" + $('#phone__modal').val(),
-            cache: false,
-            success: function () {
+
                 $(".modal--success").addClass("modal__show");
                 $(".modal--contact").removeClass("modal__show");
-            }
-        });
-    }
-    else {
-        formValidation ();
-    }
+
 
 }
 
 
 function showSuccessCalendar (){
-    if (($('#name__calendar').val().length > 4)  && ($('#phone__calendar').val().length > 9)) {
-        $.ajax({
-            type: "POST",
-            url: "controller/callme.php",
-            data: "name=" + $('#name__calendar').val() + "&phone=" + $('#phone__calendar').val(),
-            cache: false,
-            success: function () {
-                $(".modal--success").addClass("modal__show");
+            $(".modal--success").addClass("modal__show");
                 $(".modal__overlay").addClass("modal__show")
-            }
-        });
-    }
-    else {
-        formValidation ();
-    }
 
 }
 
 function showSuccessContact () {
-    if (($('#name__contact').val().length > 4)  && ($('#phone__contact').val().length > 9)) {
-        $.ajax({
-            type: "POST",
-            url: "controller/callme.php",
-            data: "name=" + $('#name__contact').val() + "&phone=" + $('#phone__contact').val(),
-            cache: false,
-            success: function () {
+
                 $(".modal--success").addClass("modal__show");
                 $(".modal__overlay").addClass("modal__show")
-            }
-        });
-    }
-    else {
 
-        formValidation ();
-    }
 
 }
 
 
 $(".contact-form__submit").click(function (event) {
     event.preventDefault();
-    if ($(this).hasClass("conslutation__callback")) {
-        showSuccessContact ();
-    }
-    else if ($(this).hasClass("calendar__callback")) {
-        showSuccessCalendar ();
-    }
-    else {
         showSuccessModal ();
-    }
+    
 });
 
 /* --- form validation ---- */
